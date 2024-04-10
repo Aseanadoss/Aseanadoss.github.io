@@ -21,12 +21,17 @@ $(function () {
     createPlatform(-50, -50, 50, canvas.height + 500); //bottom
     createPlatform(canvas.width, -50, 50, canvas.height + 100);
 
-    /**
-     * Uncomment the loops below to add a "grid" to your platformer game's screen
-     * The grid will place both horizontal and vertical platforms incremented 100 pixels apart
-     * This can give you a better idea of where to create new platforms
-     * Comment the lines out to remove the grid
-     */
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>platformer</title>
+    <link href="platformer.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="setup.js"></script>
+    <script src="helpers.js"></script>
+    <script src="platformer.js"></script>
+  </head>
 
     // for (let i = 100; i < canvas.width; i += 100) {
     //   createPlatform(i, canvas.height, -1, -canvas.height);
@@ -71,4 +76,4 @@ $(function () {
   }
 
   registerSetup(setup);
-});
+
