@@ -27,15 +27,15 @@ var init = function (window) {
         // TODO 2 : Create a function that draws a circle 
         function drawCircle  () {
             circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
-            physikz.addRandomVelocity(circle, canvas, 2.5, 2.5);
+            physikz.addRandomVelocity(circle, canvas, 10, 10);
             view.addChild(circle);
             circles.push(circle);
         }
 
 
         // TODO 3 / 7 : Call the drawCircle() function 
-        for (var loopsCompleted = 0; loopsCompleted < 10; loopsCompleted++) {
-            
+        for (var loopsCompleted = 0; loopsCompleted < 100; loopsCompleted++) {
+            drawCircle()
         }
 
         ////////////////////////////////////////////////////////////
@@ -55,8 +55,13 @@ var init = function (window) {
            
 
             // TODO 9 : Iterate over the array
-           
-            
+           for(var i=0;i < circles.length;i++){
+            physikz.updatePosition(circles[i])
+            game.checkCirclePosition(circles[i])
+           }
+           if (circle.x > canvas.width) {
+            circle.x = 0; // Move the circle to the left side of the canvas
+        }
         }
     
         /* 
@@ -78,6 +83,12 @@ var init = function (window) {
                 
                 }
 
+                if (circle.x === 0) {
+                    
+                }
+
+
+
 
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
         }
@@ -96,11 +107,11 @@ var init = function (window) {
         
         app.addUpdateable(window.opspark.game);
     }
-};
+
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
     // here, export any references you need for tests //
     module.exports = init;
-}
+    };
